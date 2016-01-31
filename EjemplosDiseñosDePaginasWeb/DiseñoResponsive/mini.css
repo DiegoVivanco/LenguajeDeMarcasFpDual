@@ -1,0 +1,12 @@
+.display-pequenyo{
+	display: inherit !important;
+}
+
+body{
+	font-family: Arial;
+}
+
+select.display-pequenyo{
+	font-size: 1.2em;
+	width: 100%;
+}

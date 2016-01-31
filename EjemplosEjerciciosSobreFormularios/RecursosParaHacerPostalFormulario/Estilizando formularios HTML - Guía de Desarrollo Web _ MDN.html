@@ -1,0 +1,982 @@
+
+
+<!DOCTYPE html>
+<html lang="es" dir="ltr" class="redesign no-js"  data-ffo-opensanslight=true data-ffo-opensans=true >
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <script>(function(d) { d.className = d.className.replace(/\bno-js/, ''); })(document.documentElement);</script>
+  
+    
+  
+
+  
+  <title>Estilizando formularios HTML - Guía de Desarrollo Web | MDN</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+  <link rel="home" href="/es/">
+  <link rel="copyright" href="#copyright">
+
+  
+    
+    
+    <link href="https://developer.cdn.mozilla.net/static/build/styles/mdn.b6e66f90df84.css" rel="stylesheet" type="text/css" />
+
+    
+  
+    <link href="https://developer.cdn.mozilla.net/static/build/styles/wiki.622da5d42eea.css" rel="stylesheet" type="text/css" />
+
+    
+
+    
+
+
+  <!-- common social tags -->
+  
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://developer.cdn.mozilla.net/static/img/opengraph-logo.dc4e08e2f6af.png">
+  <meta property="og:site_name" content="Mozilla Developer Network">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://developer.cdn.mozilla.net/static/img/opengraph-logo.dc4e08e2f6af.png">
+  <meta name="twitter:site" content="@MozDevNet">
+  <meta name="twitter:creator" content="@MozDevNet">
+
+  <link rel="search" type="application/opensearchdescription+xml" href="https://developer.mozilla.org/es/search/xml" title="Mozilla Developer Network">
+
+  <!-- third-generation iPad with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://developer.cdn.mozilla.net/static/img/favicon144.a6e4162070f4.png">
+  <!-- iPhone with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://developer.cdn.mozilla.net/static/img/favicon114.0e9fabd44f85.png">
+  <!-- first- and second-generation iPad: -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://developer.cdn.mozilla.net/static/img/favicon72.8ff9d87c82a0.png">
+  <!-- non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <link rel="apple-touch-icon-precomposed" href="https://developer.cdn.mozilla.net/static/img/favicon57.a2490b9a2d76.png">
+  <!-- basic favicon -->
+  
+    
+  
+  <link rel="shortcut icon" href="https://developer.cdn.mozilla.net/static/img/favicon32.e02854fdcf73.png">
+  <!--[if IE]>
+  <meta http-equiv="imagetoolbar" content="no">
+  <script type="text/javascript" src="https://developer.cdn.mozilla.net/static/build/js/html5shiv.3948ccddab6f.js" charset="utf-8"></script>
+  <![endif]-->
+
+  
+  <link rel="alternate" type="application/json" href="/es/docs/Web/Guide/HTML/Forms/Styling_HTML_forms$json">
+  <link rel="canonical" href="https://developer.mozilla.org/es/docs/Web/Guide/HTML/Forms/Styling_HTML_forms" >
+
+  
+    
+      <link rel="alternate" hreflang="en-US" href="/en-US/docs/Web/Guide/HTML/Forms/Styling_HTML_forms" title="Styling HTML forms">
+    
+      <link rel="alternate" hreflang="ja" href="/ja/docs/Web/Guide/HTML/Forms/Styling_HTML_forms" title="HTML フォームへのスタイル設定">
+    
+      <link rel="alternate" hreflang="fr" href="/fr/docs/Web/Guide/HTML/Formulaires/Apparence_des_formulaires_HTML" title="Apparence des formulaires HTML">
+    
+  
+
+  <!-- document-specific social tags -->
+  <meta property="og:title" content="Estilizando formularios HTML">
+  <meta property="og:url" content="https://developer.mozilla.org/es/docs/Web/Guide/HTML/Forms/Styling_HTML_forms">
+  <meta name="twitter:url" content="https://developer.mozilla.org/es/docs/Web/Guide/HTML/Forms/Styling_HTML_forms">
+  <meta name="twitter:title" content="Estilizando formularios HTML">
+  
+  <meta property="og:description" content="En este artículo aprenderemos como utilizar CSS con formularios HTML para hacerlos más atractivos. Aunque parezca extraño, esto es algo que puede llegar a ser complicado. Por razones históricas y técnicas, los widgets de formulario no suelen llevarse bien con CSS. Por este motivo, muchos desarrolladores prefieren construir sus propios widgets para tener el control de su aspecto en vez de utilizar los nativos. De todas formas, con los modernos navegadores, los diseñadores web cada vez tienen  más control sobre el diseño de los elementos de formulario. Vamos a profundizar en esto.">
+  <meta name="description" content="En este artículo aprenderemos como utilizar CSS con formularios HTML para hacerlos más atractivos. Aunque parezca extraño, esto es algo que puede llegar a ser complicado. Por razones históricas y técnicas, los widgets de formulario no suelen llevarse bien con CSS. Por este motivo, muchos desarrolladores prefieren construir sus propios widgets para tener el control de su aspecto en vez de utilizar los nativos. De todas formas, con los modernos navegadores, los diseñadores web cada vez tienen  más control sobre el diseño de los elementos de formulario. Vamos a profundizar en esto.">
+  <meta name="twitter:description" content="En este artículo aprenderemos como utilizar CSS con formularios HTML para hacerlos más atractivos. Aunque parezca extraño, esto es algo que puede llegar a ser complicado. Por razones históricas y técnicas, los widgets de formulario no suelen llevarse bien con CSS. Por este motivo, muchos desarrolladores prefieren construir sus propios widgets para tener el control de su aspecto en vez de utilizar los nativos. De todas formas, con los modernos navegadores, los diseñadores web cada vez tienen  más control sobre el diseño de los elementos de formulario. Vamos a profundizar en esto.">
+  
+
+
+  
+    
+
+<script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-36116321-5', 'mozilla.org');
+    ga('set', 'anonymizeIp', true);
+
+    
+
+    // dimension9 == "Section editing"
+    
+
+    (function() {
+        // http://cfsimplicity.com/61/removing-analytics-clutter-from-campaign-urls
+        var win = window;
+        var removeUtms = function(){
+            var location = win.location;
+            if (location.href.indexOf('utm') != -1 && win.history.replaceState) {
+                win.history.replaceState({}, '', location.pathname);
+            }
+        };
+
+        ga('send', 'pageview', {'hitCallback': removeUtms});
+    })();
+</script>
+
+  
+</head>
+<body data-slug="Web/Guide/HTML/Forms/Styling_HTML_forms" contextmenu="edit-history-menu" data-search-url="" class="document  ">
+
+  <script type="text/javascript">
+    (function(win) {
+        'use strict';
+
+        
+            (function(){
+  var FLAGS = {
+    'compat_api': false,'kumaediting': false,'mdn10_logo': true,'mdn10_tile': true,'page_move': false,'registration_disabled': false,'search_suggestions': false,'section_edit': false,'spam_checks_enabled': false,'wiki_samples': true,'wiki_spam_exempted': false
+    },
+    SWITCHES = {
+    'wiki_error_on_delete': false,'wiki_force_immediate_rendering': false,'enable_optimizely': false,'welcome_email': true,'application_ACAO': true,'store_revision_ips': true,'dumb_doc_urls': true
+    },
+    SAMPLES = {
+    
+    };
+  window.waffle = {
+    "flag_is_active": function waffle_flag(flag_name) {
+      
+      return !!FLAGS[flag_name];
+    },
+    "switch_is_active": function waffle_switch(switch_name) {
+      
+      return !!SWITCHES[switch_name];
+    },
+    "sample_is_active": function waffle_sample(sample_name) {
+      
+      return !!SAMPLES[sample_name];
+    },
+    "FLAGS": FLAGS,
+    "SWITCHES": SWITCHES,
+    "SAMPLES": SAMPLES
+  };
+})();
+
+        
+
+        // This needs to be set before ckeditor.js loads
+        window.CKEDITOR_BASEPATH = '/static/js/libs/ckeditor/build/ckeditor/';
+
+        // This represents the site configuration
+        win.mdn = {
+            // Properties and settings for CKEditor will go here
+            ckeditor: {},
+            // Feature test results and methods will be placed here
+            features: {},
+            // The path to static assets (images, CSS, JS) in MDN
+            staticPath: 'https://developer.cdn.mozilla.net/static/',
+            // Optimizely API
+            optimizely: win['optimizely'] || [],
+            // Site notifications
+            
+            notifications: [],
+            
+            // Wiki-specific settings will be placed here
+            wiki: {
+                autosuggestTitleUrl: '/es/docs/get-documents'
+            },
+            // Assets that need to be dynamically injected
+            assets: {
+                css: {
+                    'editor-content': ['https://developer.cdn.mozilla.net/static/build/styles/editor-content.3de382071433.css',],
+                    'wiki-compat-tables': ['https://developer.cdn.mozilla.net/static/build/styles/wiki-compat-tables.f3a3bfce97a1.css',]
+                },
+                js: {
+                    'syntax-prism': ['https://developer.cdn.mozilla.net/static/build/js/syntax-prism.7a66ddfa68bf.js',],
+                    'wiki-compat-tables': ['https://developer.cdn.mozilla.net/static/build/js/wiki-compat-tables.14ce5dcb2c3d.js',]
+                }
+            }
+        };
+    })(this);
+</script>
+
+  
+  <div class="global-notice">
+    <div class="wrap center">
+      
+        <p><bdi>We want to help developers like you. Tell us how you use developer services: <a href="https://qsurvey.mozilla.com/s3/da2a7841fe76">https://qsurvey.mozilla.com/s3/da2a7841fe76</a></bdi></p>
+      
+    </div>
+  </div>
+
+
+  <ul id="nav-access">
+    <li><a href="#document-main" id="skip-main">Saltar al contenido principal</a></li>
+    <li><a id="skip-language" href="#language">Seleccionar idioma</a></li>
+    
+      <li><a href="#q" id="skip-search">Saltar a la búsqueda</a></li>
+    
+  </ul>
+
+  <!-- Header -->
+  <header id="main-header"><div class="center">
+
+    <div id="tabzilla">
+        <a href="//www.mozilla.org/" class="no-track">mozilla</a>
+    </div>
+
+    <div class="clear header-clear"></div>
+
+    
+        <a href="/es/" class="logo logo-mdn10">Mozilla Developer Network</a>
+    
+
+    <div id="nav-sec">
+        
+                  <ul>
+                  <li>
+
+    
+
+    <form>
+      <div class="oauth-login-container">
+          <div class="oauth-login-options" tabIndex="0">
+              <span class="oauth-login-options-text">
+                <span class="oauth-login-options-text-icons">Iniciar sesión con</span>
+                <span class="oauth-login-options-text-no-icons">Registrarse</span>
+              </span>
+              <span class="oauth-icon oauth-persona launch-persona-login wait-for-persona disabled" data-service="Persona" data-next="/es/docs/Web/Guide/HTML/Forms/Styling_HTML_forms" title="Mozilla Persona"><i class="icon-user" aria-hidden="true"></i></span>
+              <span class="oauth-icon oauth-github" data-service="GitHub" data-href="/users/github/login/?next=%2Fes%2Fdocs%2FWeb%2FGuide%2FHTML%2FForms%2FStyling_HTML_forms" title="GitHub"><i class="icon-github" aria-hidden="true"></i></span>
+          </div>
+          <div class="oauth-login-picker" aria-hidden="true">
+              <ul>
+                  <li class="wait-for-persona disabled"><a href="/es/users/signin" class="login-link launch-persona-login" data-next="/es/docs/Web/Guide/HTML/Forms/Styling_HTML_forms" data-service="Persona"><i class="icon-user" aria-hidden="true"></i>Persona</a></li>
+                  <li><a href="/users/github/login/?next=%2Fes%2Fdocs%2FWeb%2FGuide%2FHTML%2FForms%2FStyling_HTML_forms" class="login-link" data-service="GitHub"><i class="icon-github" aria-hidden="true"></i>GitHub</a></li>
+              </ul>
+          </div>
+      </div>
+    </form>
+</li>
+                </ul>
+        
+    </div>
+
+    <nav id="main-nav" role="navigation"><ul><li><a href="/es/docs/Web">Plataforma web<i aria-hidden="true" class="icon-caret-down"></i></a>
+
+        <div class="submenu submenu-cols-2 js-submenu" id="nav-platform-submenu">
+          <div class="submenu-column">
+            <div class="title">Tecnologías</div>
+            <ul>
+              <li><a href="/es/docs/Web/HTML">HTML</a></li>
+              <li><a href="/es/docs/Web/CSS">CSS</a></li>
+              <li><a href="/es/docs/Web/JavaScript">JavaScript</a></li>
+              <li><a href="/es/docs/Web/Guide/Graphics">Gráficos</a></li>
+              <li><a href="/es/docs/Web/API">API / DOM</a></li>
+              <li><a href="/es/docs/Web/Apps">Aplicaciones</a></li>
+              <li><a href="/es/docs/Web/MathML">MathML</a></li>
+            </ul>
+          </div><div class="submenu-column last">
+            <div class="title">Referencias y guías</div>
+            <ul>
+              <li><a href="/es/docs/Learn">Aprende más sobre la Web</a></li>
+              <li><a href="/es/docs/Web/Tutorials">Tutoriales</a></li>
+              <li><a href="/es/docs/Web/Reference">Referencias</a></li>
+              <li><a href="/es/docs/Web/Guide">Guías para desarrolladores</a></li>
+              <li><a href="/es/docs/Web/Accessibility">Accesibilidad</a></li>
+              <li><a href="/es/demos/">Demos</a></li>
+              <li><a href="/es/docs/Web">...más documentos</a></li>
+            </ul>
+          </div>
+        </div>
+      </li><li><a href="/es/docs/Zones">Mozilla Docs<i aria-hidden="true" class="icon-caret-down"></i></a>
+
+        <div class="submenu js-submenu" id="nav-zones-submenu">
+          <div class="submenu-column">
+            <ul>
+              <li><a href="/es/docs/Mozilla/Add-ons">Complementos</a></li>
+              <li><a href="/es/docs/Firefox">Firefox</a></li>
+              <li><a href="/es/docs/Mozilla/Marketplace">Firefox Marketplace</a></li>
+              <li><a href="/es/docs/Firefox_OS">Firefox OS</a></li>
+              <li><a href="/es/docs/Persona">Mozilla Persona</a></li>
+            </ul>
+          </div>
+        </div>
+      </li><li><a href="/es/docs/Tools">Herramientas para desarrolladores</a></li><li><a href="/es/demos/">Demos</a></li><li><a href="/es/docs/MDN/Feedback">Comentarios<i aria-hidden="true" class="icon-caret-down"></i></a>
+
+        <div class="submenu js-submenu" id="nav-contact-submenu">
+          <div class="submenu-column">
+            <ul>
+                <li><a href="https://support.mozilla.org/">Obtén ayuda de Firefox<i aria-hidden="true" class="icon-external-link"></i></a></li>
+                <li><a href="http://stackoverflow.com/">Obtén ayuda de desarrollo web<i aria-hidden="true" class="icon-external-link"></i></a></li>
+            </ul>
+            <ul>
+              <li><a href="/es/docs/MDN/Community">Únete a la comunidad de MDN</a></li>
+              <li><a href="https://bugzilla.mozilla.org/form.doc">Denuncia un problema de contenido<i aria-hidden="true" class="icon-external-link"></i></a></li>
+              <li><a href="https://bugzilla.mozilla.org/form.mdn">Informar de un error. <i aria-hidden="true" class="icon-external-link"></i></a></li>
+            </ul>
+          </div>
+        </div>
+
+      </li><li class="nav-search-link"><a href="/es/search" title="Search"><i aria-hidden="true" class="icon-search"></i></a></li><li class="main-nav-search"><form action="/es/search" method="get" role="search">
+        <div class="search-wrap">
+          <label for="main-q" class="offscreen">Buscar</label>
+          <input type="search" id="main-q" name="q" placeholder="Buscar" data-value="" value="" />
+          <span class="search-trigger"><i aria-hidden="true" class="icon-search"></i></span>&nbsp;
+          <button type="submit" class="offscreen">Buscar</button>
+        </div>
+      </form></li></ul></nav>
+  </div></header>
+
+  <!-- Content will go here -->
+  <main id="content"><div class="center clear">
+  
+
+   <!-- end is_zone -->
+
+
+    <div class="wiki-main-content" id="document-main"><div class="center">
+      
+      <div class="article-meta">
+        <!-- action buttons -->
+        
+
+  
+    
+    
+  
+
+  
+    
+  
+
+  
+
+  <ul class="page-buttons" data-sticky="false">
+      
+      <li><button id="languages-menu" class="transparent" aria-haspopup="true" aria-owns="languages-menu-submenu" aria-expanded="false"><span>Idiomas</span><i aria-hidden="true" class="icon-globe"></i></button>
+
+        <div class="submenu js-submenu" id="languages-menu-submenu">
+          <div class="submenu-column">
+            <ul id="translations">
+              
+                
+                  <li><bdi><a rel="internal" href="/en-US/docs/Web/Guide/HTML/Forms/Styling_HTML_forms" title="Styling HTML forms">English (US)</a></bdi></li>
+                
+                  <li><bdi><a rel="internal" href="/ja/docs/Web/Guide/HTML/Forms/Styling_HTML_forms" title="HTML フォームへのスタイル設定">日本語</a></bdi></li>
+                
+                  <li><bdi><a rel="internal" href="/fr/docs/Web/Guide/HTML/Formulaires/Apparence_des_formulaires_HTML" title="Apparence des formulaires HTML">Français</a></bdi></li>
+                
+              
+
+              
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <li class="page-buttons-edit"><a href="/es/docs/Web/Guide/HTML/Forms/Styling_HTML_forms$edit" class="button" data-optimizely-hook="button-edit-doc" id="edit-button">Editar<i aria-hidden="true" class="icon-pencil"></i></a></li>
+
+        
+
+        <li><button id="advanced-menu" class="only-icon" aria-haspopup="true" aria-owns="advanced-menu-submenu" aria-expanded="false"><span>Avanzado</span><i aria-hidden="true" class="icon-cog"></i></button>
+        <div class="submenu js-submenu" id="advanced-menu-submenu">
+          <!-- this page -->
+          <div class="submenu-column">
+            <div class="title">Avanzado</div>
+            <ul>
+                <li><a href="/es/docs/Web/Guide/HTML/Forms/Styling_HTML_forms$history" rel="nofollow, noindex">Historial</a></li>
+                
+                
+                
+                
+
+
+                
+
+                
+                
+                
+                <li class="page-print"><a href="#" onclick="return window.print();">Imprimir este artículo</a></li>
+            </ul>
+          </div>
+        </div>
+  </li></ul>
+
+        <!-- crumbs -->
+        
+  <nav class="crumbs" role="navigation"><ol xmlns:v="http://rdf.data-vocabulary.org/#" aria-label="hilos de araña">
+    <li typeof="v:Breadcrumb"><a href="/es" rel="v:url" property="v:title">MDN</a></li>
+    
+      <li class="crumb" typeof="v:Breadcrumb"><a href="/es/docs/Web" rel="v:url" property="v:title">Tecnología Web para desarrolladores</a></li>
+    
+      <li class="crumb" typeof="v:Breadcrumb"><a href="/es/docs/Web/Guide" rel="v:url" property="v:title">Guía de Desarrollo Web</a></li>
+    
+      <li class="crumb" typeof="v:Breadcrumb"><a href="/es/docs/Web/Guide/HTML" rel="v:url" property="v:title">Guía del desarrollador HTML</a></li>
+    
+      <li class="crumb" typeof="v:Breadcrumb"><a href="/es/docs/Web/Guide/HTML/Forms" rel="v:url" property="v:title">HTML forms guide</a></li>
+    
+    <li class="crumb" typeof="v:Breadcrumb" property="v:title">Estilizando formularios HTML</li>
+  </ol></nav>
+      </div>
+
+      <!-- heading -->
+      <div id="wiki-document-head" class="document-head">
+          <span class="from-search-previous-box">
+            <a class="button from-search-previous only-icon disabled" title="Resultado anterior de la búsqueda" data-empty-title="No hay resultados anteriores de la búsqueda"><i aria-hidden="true" class="icon-chevron-left"></i></a>
+          </span>
+          <span class="from-search-navigate-wrap">
+            <a href="#" class="from-search-navigate"><span class="from-search-navigate-up"><i aria-hidden="true" class="icon-double-angle-up"></i></span><span class="from-search-navigate-down"><i aria-hidden="true" class="icon-double-angle-down"></i></span></a>
+          </span>
+          <div class="from-search-toc submenu">
+            <span class="title">Los resultados de tu búsqueda</span>
+            <ol></ol>
+          </div>
+          <span class="from-search-next-box">
+            <a class="button from-search-next only-icon disabled" title="Siguiente resultado de la búsqueda" data-empty-title="No hay resultados anteriores de la búsqueda"><i aria-hidden="true" class="icon-chevron-right"></i></a>
+          </span>
+
+        
+        <div class="contributor-avatars" data-all-text="see all contributors" data-alternate-message="hide contributors" >
+            <ul>
+            
+                <li class="shown">
+                <a href="/es/profiles/cizquierdof" title="Ver perfil: cizquierdof">
+                <noscript data-width="34" data-height="34" data-class="avatar" data-alt="cizquierdof" data-src="https://secure.gravatar.com/avatar/d28af8692b4ff15fc2ae0b60d4425d35?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">cizquierdof</noscript></a>
+                </li>
+            
+            </ul>
+        </div>
+        
+
+        <h1>Estilizando formularios HTML</h1>
+
+      </div>
+      
+
+      <!-- start the main content container -->
+        <div id="wiki-column-container" class="wiki-right-present wiki-left-closed wiki-left-none">
+
+          
+
+          <!-- content row with three strips -->
+          <div class="column-container column-container-reverse">
+
+            
+              <!-- TOC, approvals, etc -->
+              <div class="column-strip wiki-column" id="wiki-right">
+              
+              <!-- table of contents -->
+              <div id="toc" class="toc toggleable">
+                <a href="#toc" class="title toggler" data-open-icon="icon-plus" data-closed-icon="icon-minus">En este artículo<i></i></a>
+                <ol class="toggle-container">
+                  <li><a href="#.C2.BFPorqu.C3.A9_es_tan_dif.C3.ADcil_aplicar_estilos_a_formularios_con_CSS.3F" rel="internal">¿Porqué es tan difícil aplicar estilos a formularios con CSS?</a><ol><li><a href="#No_todos_los_widgets_se_crean_igual_con_CSS" rel="internal">No todos los widgets se crean igual con CSS</a><ol><li><a href="#El_bueno" rel="internal">El bueno</a><li><a href="#El_feo" rel="internal">El feo</a></ol></li></ol></li><li><a href="#Estilizado_b.C3.A1sico" rel="internal">Estilizado básico</a><ol><li><a href="#Campos_de_b.C3.BAsqueda" rel="internal">Campos de búsqueda</a><ol><li><a href="#Ejemplo" rel="internal">Ejemplo</a></ol></li><li><a href="#Fuentes_y_texto" rel="internal">Fuentes y texto</a><li><a href="#Modelo_de_cajas" rel="internal">Modelo de cajas</a><li><a href="#Posicionado" rel="internal">Posicionado</a><ol><li><a href="#legend" rel="internal">legend</a><li><a href="#textarea" rel="internal">textarea</a></ol></li></ol></li><li><a href="#Ejemplo_2" rel="internal">Ejemplo</a><ol><li><a href="#HTML_2" rel="internal">HTML</a><li><a href="#CSS_2" rel="internal">CSS</a></ol></li><li><a href="#Conclusi.C3.B3n" rel="internal">Conclusión</a>
+                </ol>
+              </div>
+              
+              </div>
+            
+
+            
+            
+              
+            
+
+            <!-- center: main article content -->
+            <div id="wiki-content" class="column-main wiki-column text-content">
+
+              
+
+              
+
+              
+                
+                
+                  <div class="warning warning-review"><p>Este articulo necesita una revisión editorial.</p></div>
+                
+                
+              
+              
+
+              <!-- just the article content -->
+              <article id="wikiArticle">
+                
+                  
+                    <p>En este artículo aprenderemos como utilizar <a href="/es/docs/Web/CSS">CSS</a> con formularios <a href="/es/docs/Web/HTML">HTML</a>  para hacerlos más atractivos. Aunque parezca extraño, esto es algo que puede llegar a ser complicado. Por razones históricas y técnicas, los widgets de formulario no suelen llevarse bien con CSS. Por este motivo, muchos desarrolladores prefieren <a href="https://developer.mozilla.org/en-US/docs/HTML/Forms/How_to_build_custom_form_widgets">construir sus propios widgets</a> para tener el control de su aspecto en vez de utilizar los nativos. De todas formas, con los modernos navegadores, los diseñadores web <span style="line-height: 23.3333339691162px;">cada vez</span><span style="line-height: 1.5;"> tienen  más control sobre el diseño de los elementos de formulario. Vamos a profundizar en esto.</span></p>
+
+<h2 id=".C2.BFPorqu.C3.A9_es_tan_dif.C3.ADcil_aplicar_estilos_a_formularios_con_CSS.3F">¿Porqué es tan difícil aplicar estilos a formularios con CSS?</h2>
+
+<p>En los principios de la Web —allá por1995—se añadieron los controles de formulario en la <a class="external" href="http://www.ietf.org/rfc/rfc1866.txt">2ª especificación HTML.</a> Debido a la complejidad de los widgets de formulario, los implementadores prefirieron dejar que el sistema operativo subyacente se encargara de su manejo y presentación.</p>
+
+<p>Pocos años después,  se creó<span style="line-height: 23.3333339691162px;"> </span><span style="line-height: 1.5;">CSS y lo que era una necesidad técnica</span>— es decir, el uso de widgets nativos para implementar controles de formulario—empezó a requerir estilizado. Y en los primeros días de CSS, el estilizado de formularios no fué una prioridad.</p>
+
+<p>Por otra parte, como los usuarios estaban acostumbrados a la apariencia visual de sus plataformas respectivas, los fabricantes de navegadores fueron reacios a hacer que los controles de formularios pudieran recibir estilos.</p>
+
+<p>Hoy en día, ni siquiera uno solo de los navegadores actuales implementa <span style="line-height: 23.3333339691162px;">completamente</span><span style="line-height: 1.5;"> a CSS 2.1. Afortunadamente, con el tiempo, los fabricantes de navegadores han ido mejorado su soporte a CSS para los elementos de formulario e, incluso considerando que su usabilidad tiene mala reputación, actualmente, ya se puede usar CSS para estilizar </span><a href="https://developer.mozilla.org/en-US/docs/HTML/Forms" style="line-height: 1.5;">formularios HTML.</a></p>
+
+<h3 id="No_todos_los_widgets_se_crean_igual_con_CSS">No todos los widgets se crean igual con CSS</h3>
+
+<p>Actualmente aun se encuentran dificultades cuando se utiliza CSS con formularios; estos problemas se pueden dividir en tres categorías.</p>
+
+<h4 id="El_bueno">El bueno</h4>
+
+<p>A algunos elementos se les puede dar estilo con pocos o ningún problema independientemente de la plataforma. Entre estos se incluyen los siguientes elementos estructurales:</p>
+
+<ol>
+ <li><a href="/es/docs/Web/HTML/Elemento/form" title="This article hasn't been written yet. Please consider contributing!"><code>&lt;form&gt;</code></a></li>
+ <li><a href="/es/docs/Web/HTML/Elemento/fieldset" title="This article hasn't been written yet. Please consider contributing!"><code>&lt;fieldset&gt;</code></a></li>
+ <li><a href="/es/docs/Web/HTML/Elemento/label" title="This article hasn't been written yet. Please consider contributing!"><code>&lt;label&gt;</code></a></li>
+ <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output">&lt;output&gt;</a></li>
+</ol>
+
+<p style="line-height: 23.3333339691162px;">Esto también incluye todos los campos de texto (tanto los de línea simple como los de línea múltiple) y los botones.</p>
+
+<ol style="line-height: 23.3333339691162px;">
+</ol>
+
+<p style="line-height: 18px; font-size: 1.28571428571429rem;">El malo</p>
+
+<p>Hay otros elementos a los que raramente se les puede aplicar estilos y pueden llegar a requerir  <span style="line-height: 23.3333339691162px;">técnicas</span><span style="line-height: 1.5;"> complejas y </span><span style="line-height: 1.5;">ocasionalmente necesitan conocimientos avanzados de CSS3.</span></p>
+
+<p>Entre estos se incluyen el elemento <a href="/es/docs/Web/HTML/Elemento/legend" title="This article hasn't been written yet. Please consider contributing!"><code>&lt;legend&gt;</code></a> ; que no puede posicionarse adecuadamente en todas las plataformas.  Los elementos checkbox y los botones de radio no permiten que se le apliquen estilos directamente;  de todas formas, gracias a CSS3 esto puede soslayarse. Al contenido de  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-placeholder">placeholder </a>no se le puede aplicar estilo de ninguna forma convencional; sin embargo, todos los navegadores que lo implementan  también implementan pseudo-elementos<span style="line-height: 23.3333339691162px;"> o </span><span style="line-height: 1.5;">pseud</span><span style="line-height: 1.5;">o-clases propi</span>etarias que permiten darles estilo<span style="line-height: 1.5;">.</span></p>
+
+<p><span style="line-height: 1.5;">Veremos como trabajar con estos casos específicos en el artículo </span><a href="/en-US/docs/Advanced_styling_for_HTML_forms" style="line-height: 23.3333339691162px;" title="/en-US/docs/Advanced_styling_for_HTML_forms">Advanced styling for HTML forms</a><span style="line-height: 23.3333339691162px;">.</span></p>
+
+<h4 id="El_feo">El feo</h4>
+
+<p>En algunos elementos, simplemente no se puede utilizar CSS. Estos son todos los elementos avanzados de interface de usuario tales como los controles range, color, o date, e igualmente pasa con los widgets desplegables como <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select">select</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option">option</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup">optgropup </a>y <a href="/es/docs/HTML/Elemento/datalist">datalist</a>. Respecto al selector de archivos, es bien sabido que no puede aplicarse estilo en absoluto. Los nuevos elementos <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress">progress </a>y <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter">meter </a>también caen dentro de esta categoría.</p>
+
+<p>El principal problema con todos estos widgets viene de que todos ellos tienen una estructura muy compleja y CSS no es lo suficientemente expresivo para estilizar cada una de sus sutiles partes. Si lo que se quiere es personalizar estos widgets se deberá recurrir a javaScript para construir un árbol DOM que te permita acceder a ellos. Para aprender como conseguirlo mirar en el artículo <a href="/en-US/docs/HTML/Forms/How_to_build_custom_form_widgets" style="line-height: 23.3333339691162px; text-decoration: underline;" title="/en-US/docs/HTML/Forms/How_to_build_custom_form_widgets"><span style="line-height: 23.3333339691162px;"><u>How to </u></span>build<span style="line-height: 23.3333339691162px;"><u> </u></span>custom<span style="line-height: 23.3333339691162px;"><u> </u></span>form<span style="line-height: 23.3333339691162px;"><u> </u></span>widgets</a>.</p>
+
+<h2 id="Estilizado_b.C3.A1sico">Estilizado básico</h2>
+
+<p>Aplicar estilos a <a href="https://developer.mozilla.org/es/docs/Web/Guide/HTML/Forms/Styling_HTML_forms#El_bueno">elementos que son fáciles de estilizar</a> con CSS, no debería suponer ninguna dificultad ya que básicamente se comportan como cualquier otro elemento HTML. De todas formas, el agente de usuario de estilos para cada navegador puede mostrar pequeñas inconsistencias por lo que a continuación daremos algunos trucos para ayudar a aplicar estilos más cómodamente.</p>
+
+<h3 id="Campos_de_b.C3.BAsqueda">Campos de búsqueda</h3>
+
+<p>Las cajas de búsqueda son el único tipo de campo de texto que pueden ofrecer más dificultad al aplicar estilos. En los navegadores basados en webkit (Chrome, Safari, etc.) se debe lidiar con la propiedad -webkit-. Discutiremos esta propiedad más tarde en el artículo: <a href="/en-US/docs/Advanced_styling_for_HTML_forms" style="line-height: 23.3333339691162px; text-decoration: underline;" title="/en-US/docs/Advanced_styling_for_HTML_forms">Advanced styling for HTML forms</a><span style="line-height: 23.3333339691162px;">.</span></p>
+
+<h4 id="Ejemplo">Ejemplo</h4>
+
+<pre class="brush: html">&lt;form&gt;
+  &lt;input type="search"&gt;
+&lt;/form&gt;
+</pre>
+
+<pre class="brush: css">input[type=search] {
+  border: 1px dotted #999;
+  border-radius: 0;
+
+  -webkit-appearance: none;
+}</pre>
+
+<p><img alt="This is a screenshot of a search filed on Chrome, with and without the use of -webkit-appearance" src="/files/4153/search-chrome-macos.png" style="width: 179px; height: 107px; border-width: 1px; border-style: solid;"></p>
+
+<p>En esta captura de pantalla pueden verse dos campos de búsqueda en Chrome, ambos campos tienen definido el borde como en nuestro ejemplo, pero el primero no utiliza -webkit- mientras que el segundo si lo hace con -webkit-appearance:none. Las diferencias son evidentes.</p>
+
+<h3 id="Fuentes_y_texto">Fuentes y texto</h3>
+
+<p>Las fuentes y capacidades de texto de CSS  se pueden utilizar sin problemas en cualquier widget (y sí, se puede utilizar <a href="/es/docs/Web/CSS/@font-face">@font-face</a> en formularios). De todas formas, el comportamiento de los navegadores no es siempre consistente. Por defecto, algunos widgets no heredan <a href="/es/docs/Web/CSS/font-family">font-family</a> ni <a href="/es/docs/Web/CSS/font-size">font-size</a> de sus antecesores. Y muchos navegadores utilizan la apariencia por defecto. Para mantener la coherencia de los formularios con el resto de elementos se deben añadir las siguientes reglas a la hoja de estilos:</p>
+
+<pre class="brush: css">button, input, select, textarea {
+  font-family : inherit;
+  font-size   : 100%;
+}</pre>
+
+<p>La siguiente captura de pantalla muestra estas incosistencias; a la izquierda la apariencia por defecto en Firefox sobre Mac OS X, usando las fuentes por defecto de la plataforma. A la derecha los mismos elementos aplicando nuestras reglas de armonización de fuentes.</p>
+
+<p><img alt="This is a screenshot of the main form widgets on Firefox on Mac OSX, with and without font harmonization" src="/files/4157/font-firefox-macos.png" style="width: 420px; height: 234px; border-width: 1px; border-style: solid;"></p>
+
+<p>Hay muchas controversia sobre si los formularios tienen mejor aspecto usando los estilos por defecto del sistema o usando estilos personalizados que coincidan con el resto del contenido. Como diseñador del sitio o aplicación Web esta decisión  es suya.</p>
+
+<h3 id="Modelo_de_cajas">Modelo de cajas</h3>
+
+<p>Todos los campos de texto tienen soporte completo para las propiedades relacionadas con el modelo de cajas de CSS (<a href="/es/docs/Web/CSS/width">width</a>, <a href="/es/docs/Web/CSS/height">height</a>, <a href="/es/docs/Web/CSS/padding_paspartu">padding</a>, margin y <a href="/es/docs/CSS/border">border</a>). Igual que antes, los navegadores se remiten a los estilos por defecto del sistema cuando muestran estos widgets. A cada cual te corresponde el como combinarlos dentro del resto de contenido. Si  se quieres mantener el aspecto nativo de los widgets, entonces hay que afrontar pequeñas inconsistencias de tamaño.</p>
+
+<p>Esto es porque cada widget tiene sus propias reglas para el orden, margen y padding. Por lo que si quieres darle el mismo tamaño a varios widgets diferentes se debe usar la propiedad box-sizing: </p>
+
+<pre class="brush: css">input, textarea, select, button {
+  width : 150px;
+  margin: 0;
+
+  -webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
+     -moz-box-sizing: border-box; /* For legacy (Firefox &lt;29) Gecko based browsers */
+          box-sizing: border-box;
+}</pre>
+
+<p><img alt="This is a screenshot of the main form widgets on Chrome on Windows 7, with and without the use of box-sizing." src="/files/4161/size-chrome-win7.png" style="width: 358px; height: 213px; border-width: 1px; border-style: solid;"></p>
+
+<p>En la captura de pantalla de arriba, la columna la izquierda es sin utilizar box-sizing, mientras que la de la derecha usa esta propiedad con el valor border-box. Obsérvese cómo esto permite asegurar que todos los elementos ocupan la misma cantidad de espacio, independientemente de las reglas por defecto de la plataforma.</p>
+
+<h3 id="Posicionado">Posicionado</h3>
+
+<p>El posicionado de formularios HTML <span style="line-height: 23.3333339691162px;">no es </span><span style="line-height: 1.5;">generalmente  un problema; sin embargo, hay dos elementos a los que prestar una especial atención:</span></p>
+
+<h4 id="legend">legend</h4>
+
+<p>El elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend">legend </a>no tiene problemas de estilizado a excepción de las reglas de posición. En los navegadores el elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend">legend </a>se posiciona encima del borde superior de su antecesor <a href="/es/docs/HTML/Elemento/fieldset">fieldset</a>. No existe ninguna posibilidad de colocarlo dentro del flujo HTML más allá del borde superior. Sin embargo se puede posicionar de forma relativa o absoluta mediante la propiedad position. En cualquier caso sigue siendo parte del borde de fieldset.</p>
+
+<p>Debido a que el elemento legend es muy importante por razones de accesibilidad (esto es lo que leen las tecnologías de asistencia como parte de las etiquetas de cada elemento de formulario dentro del fieldset), bastante menudo se empareja con un título que se oculta pero siendo aun accesible, de la forma siguiente:</p>
+
+<h5 id="HTML">HTML</h5>
+
+<pre class="brush: html">&lt;fieldset&gt;
+  &lt;legend&gt;Hi!&lt;/legend&gt;
+  &lt;h1&gt;Hello&lt;/h1&gt;
+&lt;/fieldset&gt;</pre>
+
+<h5 id="CSS">CSS</h5>
+
+<pre class="brush: css">legend {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}</pre>
+
+<h4 id="textarea">textarea</h4>
+
+<p>Por defecto, todos los navegadores consideran el elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea">textarea </a>como un inline block alineado con la línea base del texto. Esto es algo que raramente es lo que en realidad se quiere. Para convertir este elemento de un inline-block a uno tipo block, se realiza bastante fácilmente utilizando la propiedad <a href="/es/docs/CSS/display">display</a>. Si lo que quieres es utilizarlo inline, es corriente cambiar la alineación vertical: </p>
+
+<pre class="brush: css">textarea {
+  vertical-align: top;
+}</pre>
+
+<h2 id="Ejemplo_2">Ejemplo</h2>
+
+<p>Vamos a ver un ejemplo de como aplicar estilo a un formulario HTML. Esto nos ayudará a tener las ideas más claras. A continuación construiremos el siguiente formulario de contacto de esta postal:</p>
+
+<p><img alt="This is what we want to achieve with HTML and CSS" src="/files/4149/screenshot.png" style="width: 370px; height: 249px; border-width: 1px; border-style: solid;"></p>
+
+<h3 id="HTML_2">HTML</h3>
+
+<p>El HTML  incluye poco más de lo que se utiliza en el primer artículo de <a href="/en-US/docs/HTML/Forms/My_first_HTML_form">esta guía</a>; apenas el título y algún ID más.</p>
+
+<pre class="brush: html">&lt;form&gt;
+  &lt;h1&gt;to: Mozilla&lt;/h1&gt;
+
+  &lt;div id="from"&gt;
+    &lt;label for="name"&gt;from:&lt;/label&gt;
+    &lt;input type="text" id="name" name="user_name"&gt;
+  &lt;/div&gt;
+
+  &lt;div id="reply"&gt;
+    &lt;label for="mail"&gt;reply:&lt;/label&gt;
+    &lt;input type="email" id="mail" name="user_email"&gt;
+  &lt;/div&gt;
+
+  &lt;div id="message"&gt;
+    &lt;label for="msg"&gt;Your message:&lt;/label&gt;
+    &lt;textarea id="msg" name="user_message"&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+ 
+  &lt;div class="button"&gt;
+    &lt;button type="submit"&gt;Send your message&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;</pre>
+
+<h3 id="CSS_2">CSS</h3>
+
+<p>¿Aqui es donde empieza la diversión! Antes de empezar a codificar, necesitamos tres elementos adicionales:</p>
+
+<ol>
+ <li>El <a href="https://developer.mozilla.org/files/4151/background.jpg">fondo </a>de la postal</li>
+ <li>Una fuente tipográfica: <a class="external" href="http://www.fontsquirrel.com/fonts/Secret-Typewriter" rel="external" title="http://www.fontsquirrel.com/fonts/Secret-Typewriter">la "Secret Typewriter" de fontsquirrel.com</a></li>
+ <li>Una fuente manuscrita: <a class="external" href="http://www.fontsquirrel.com/fonts/Journal" rel="external" title="http://www.fontsquirrel.com/fonts/Journal">la "Journal" fde fontsquirrel.com</a></li>
+</ol>
+
+<p>Ahora podemos repasar el código. Primero preparamos las bases definiendo las reglas <span style="line-height: 23.3333339691162px;"> </span><a href="https://developer.mozilla.org/es/docs/Web/CSS/@font-face" style="line-height: 23.3333339691162px;" title="@font-face permite al autor especificar fuentes online para visualizar en sus páginas web. Al permitir a los autores proporcionar sus propias fuentes, @font-face elimina la necesidad de depender del numero limitado de fuentes de usuarios instaladas en sus computadoras."><code>@font-face</code></a> y los elementos básicos de <a href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento/body" style="line-height: 23.3333339691162px;" title="This article hasn't been written yet. Please consider contributing!"><code>&lt;body&gt;</code></a> y <a href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento/form" style="line-height: 23.3333339691162px;" title="This article hasn't been written yet. Please consider contributing!"><code>&lt;form&gt;</code></a><span style="line-height: 23.3333339691162px;"> </span></p>
+
+<pre class="brush: css">@font-face{
+  font-family : "handwriting";
+
+  src : url('journal.eot');
+  src : url('journal.eot?') format('eot'),
+        url('journal.woff') format('woff'),
+        url('journal.ttf') format('truetype');
+}
+
+@font-face{
+  font-family : "typewriter";
+
+  src : url('veteran_typewriter.eot');
+  src : url('veteran_typewriter.eot?') format('eot'),
+        url('veteran_typewriter.woff') format('woff'),
+        url('veteran_typewriter.ttf') format('truetype');
+}
+
+body {
+  font  : 21px sans-serif;
+
+  padding : 2em;
+  margin  : 0;
+
+  background : #222;
+}
+
+form {
+  position: relative;
+
+  width  : 740px;
+  height : 498px;
+  margin : 0 auto;
+
+  background: #FFF url(background.jpg);
+}</pre>
+
+<p>Ahora podemos posicionar los elementos, incluidos el título y los elementos del formulario.</p>
+
+<pre class="brush: css">h1 {
+  position : absolute;
+  left : 415px;
+  top  : 185px;
+ 
+  font : 1em "typewriter", sans-serif;
+}
+
+#from {
+  position: absolute;
+  left : 398px;
+  top  : 235px;
+}
+
+#reply {
+  position: absolute;
+  left : 390px;
+  top  : 285px;
+}
+
+#message {
+  position: absolute;
+  left : 20px;
+  top  : 70px;
+}</pre>
+
+<p>Aquí es donde empezamos a trabajar los propios elementos. Primero, nos aseguramos que los elementos <span style="line-height: 23.3333339691162px;"> </span><a href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento/label" style="line-height: 23.3333339691162px;" title="This article hasn't been written yet. Please consider contributing!"><code>&lt;label&gt;</code></a> reciben la fuente correcta.</p>
+
+<pre class="brush: css">label {
+  font : .8em "typewriter", sans-serif;
+}</pre>
+
+<p>Los campos de texto necesitan algunas reglas comunes. Dicho simplemente, le quitamos bordes y fondos y redefinimos el padding y margin.</p>
+
+<pre class="brush: css">input, textarea {
+  font    : .9em/1.5em "handwriting", sans-serif;
+
+  border  : none;
+  padding : 0 10px;
+  margin  : 0;
+  width   : 240px;
+
+  background: none;
+}</pre>
+
+<p>Cuando uno de estos campos recibe el foco, vamos a resaltarlo con un fondo transparente gris claro. Tome nota de que es importante añadir la propiedad <span style="line-height: 23.3333339691162px;"> </span><a class="new" href="https://developer.mozilla.org/es/docs/Web/CSS/outline" style="color: rgb(153, 0, 0); line-height: 23.3333339691162px;" title="The documentation about this has not yet been written; please consider contributing!"><code>outline</code></a><span style="line-height: 23.3333339691162px;"> </span> para quitar el resaltado de enfoque añadido por defecto por algunos navegadores.</p>
+
+<pre class="brush: css">input:focus, textarea:focus {
+  background   : rgba(0,0,0,.1);
+  border-radius: 5px;
+  outline      : none;
+}</pre>
+
+<p>Ahora que nuestros campos de texto están terminados, necesitamos ajustar como se muestran los campos de simple y múltiple línea para que coincidan, ya que lo normal es que por defecto no se vean igual.</p>
+
+<p>El campo de línea simple requiere de algunos trucos para que se vean bien en Internet Explorer. Internet Explorer no define la altura de los campos basándose en la altura natural de la fuente (lo cual es el comportamiento normal del resto de navegadores). Para corregir esto necesitamos añadir explícitamente la altura a los campos de la siguiente forma:</p>
+
+<pre class="brush: css">input {
+    height: 2.5em; /* for IE */
+    vertical-align: middle; /* This is optional but it makes legacy IEs look better */
+}</pre>
+
+<p>Los elementos <code style="color: rgb(153, 0, 0); line-height: 23.3333339691162px;"><a class="new" href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento/textarea" style="color: rgb(153, 0, 0); line-height: 23.3333339691162px;" title="This article hasn't been written yet. Please consider contributing!">&lt;textarea&gt;</a> </code>se muestran por defecto como bloques, Las dos cosas importantes aquí son las propiedades  <a class="new" href="https://developer.mozilla.org/es/docs/Web/CSS/resize" style="color: rgb(153, 0, 0); line-height: 19.0909080505371px;" title="The documentation about this has not yet been written; please consider contributing!"><code>resize</code></a><span style="line-height: 19.0909080505371px;"> y </span><code style="line-height: 19.0909080505371px;"><a href="https://developer.mozilla.org/es/docs/Web/CSS/overflow" style="line-height: 19.0909080505371px;" title="La propiedad CSS overflow  especifica: si recortar contenido, dibujar barras de desplazamiento o mostrar el contenido excedente en un elemento a nivel de bloque.">overflow</a>. </code>Ya que nuestro <code style="line-height: 19.0909080505371px;">diseño </code>es de tamaño fijo, utilizaremos la propiedad <code>resize</code> para impedir que el usuario pueda cambiar el tamaño de los campos multilínea. La propiedad <span style="line-height: 19.0909080505371px;"> </span><a href="https://developer.mozilla.org/es/docs/Web/CSS/overflow" style="line-height: 19.0909080505371px;" title="La propiedad CSS overflow  especifica: si recortar contenido, dibujar barras de desplazamiento o mostrar el contenido excedente en un elemento a nivel de bloque."><code>overflow</code></a><span style="line-height: 19.0909080505371px;"> </span> se utiliza para que el campo se muestre de forma más consistente a través de diversos navegadores; algunos de ellos ponen por defecto esta propiedad en <code>auto</code>, pero en nuestro caso, es mejor asegurarse de que todos estén en <code>auto.</code></p>
+
+<pre class="brush: css">textarea {
+  display : block;
+
+  padding : 10px;
+  margin  : 10px 0 0 -10px;
+  width   : 340px;
+  height  : 360px;
+
+  resize  : none;
+  overflow: auto;
+}</pre>
+
+<p>El elemento <code style="line-height: 19.0909080505371px;"><a href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento/button" style="line-height: 19.0909080505371px;" title="This article hasn't been written yet. Please consider contributing!">&lt;button&gt;</a> </code>se acomoda muy bien a CSS; se puede hacer lo que se quiera con el, ¡incluso utilizando<code style="line-height: 19.0909080505371px;"> <a href="https://developer.mozilla.org/en-US/docs/CSS/Pseudo-elements">pseudo-elementos</a>!</code></p>
+
+<pre class="brush: css">button {
+  position     : absolute;
+  left         : 440px;
+  top          : 360px;
+
+  padding      : 5px;
+
+  font         : bold .6em sans-serif;
+  border       : 2px solid #333;
+  border-radius: 5px;
+  background   : none;
+
+  cursor       : pointer;
+
+-webkit-transform: rotate(-1.5deg);
+   -moz-transform: rotate(-1.5deg);
+    -ms-transform: rotate(-1.5deg);
+     -o-transform: rotate(-1.5deg);
+        transform: rotate(-1.5deg);
+}
+
+button:after {
+  content: " &gt;&gt;&gt;";
+}
+
+button:hover,
+button:focus {
+  outline   : none;
+  background: #000;
+  color   : #FFF;
+}</pre>
+
+<p>Y ¡voilá! Sientase libre de probarlo usted mismo; como comprobará ¡esto funciona!</p>
+
+<h2 id="Conclusi.C3.B3n">Conclusión</h2>
+
+<p>Como puede verse, mientras que queramos construir formularios solo con campos de texto y botones, es sencillo aplicarles estilos con CSS. Si desea saber más pequeños trucos de CSS que le hagan más fácil la vida al trabajar con formularios, echele un vistazo a la parte de formularios de <a class="external" href="http://necolas.github.com/normalize.css" rel="external" style="line-height: 19.0909080505371px;" title="http://necolas.github.com/normalize.css">the normalize.css project</a><span style="line-height: 19.0909080505371px;">.</span></p>
+
+<p><span style="line-height: 19.0909080505371px;">En el próximo artículo, veremos como manejar widgets de formulario de la categoría de "el malo" y "el feo".</span></p>
+                  
+                
+              </article>
+
+              
+
+    
+    
+    
+
+    
+    
+    
+
+    <div class="share">
+        <strong>Compartir:</strong>
+        <ul>
+            <li><a href="http://twitter.com/share?url=https%3A%2F%2Fdeveloper.mozilla.org%2Fes%2Fdocs%2FWeb%2FGuide%2FHTML%2FForms%2FStyling_HTML_forms%3Futm_campaign%3Dshare%26utm_medium%3Ddoc%2Bshare%2Blink%26utm_source%3Dtwitter.com&amp;text=Aprend%C3%AD+sobre+Estilizando+formularios+HTML+en+MDN." target="_blank" data-url="https://developer.mozilla.org/es/docs/Web/Guide/HTML/Forms/Styling_HTML_forms?utm_campaign=share&amp;utm_medium=doc+share+link&amp;utm_source=twitter.com" data-title="Aprendí sobre Estilizando formularios HTML en MDN." class="share-link twitter"><i aria-hidden="true" class="icon-twitter"></i>Twitter</a></li>
+            <li><a href="http://facebook.com/sharer.php?s=100&amp;p[url]=https://developer.mozilla.org/es/docs/Web/Guide/HTML/Forms/Styling_HTML_forms?utm_campaign=share&amp;utm_medium=doc+share+link&amp;utm_source=facebook.com" target="_blank" data-url="https://developer.mozilla.org/es/docs/Web/Guide/HTML/Forms/Styling_HTML_forms?utm_campaign=share&amp;utm_medium=doc+share+link&amp;utm_source=facebook.com" data-title="Aprendí sobre Estilizando formularios HTML en MDN." class="share-link facebook"><i aria-hidden="true" class="icon-facebook"></i>Facebook</a></li>
+            <li><a href="https://plus.google.com/share?url=https%3A%2F%2Fdeveloper.mozilla.org%2Fes%2Fdocs%2FWeb%2FGuide%2FHTML%2FForms%2FStyling_HTML_forms%3Futm_campaign%3Dshare%26utm_medium%3Ddoc%2Bshare%2Blink%26utm_source%3Dplus.google.com" target="_blank" data-url="https://developer.mozilla.org/es/docs/Web/Guide/HTML/Forms/Styling_HTML_forms?utm_campaign=share&amp;utm_medium=doc+share+link&amp;utm_source=plus.google.com" data-title="Aprendí sobre Estilizando formularios HTML en MDN." class="share-link gplus"><i aria-hidden="true" class="icon-google-plus"></i>Google+</a></li>
+        </ul>
+    </div>
+
+              
+
+                <!-- contributors -->
+                <div class="wiki-block contributors">
+                  <h2 class="offscreen">Etiquetas y colaboradores del documento</h2>
+                  
+                  
+
+                  
+                    <div class="contributors-sub">
+                      <i aria-hidden="true" class="icon-group icon-fw"></i>&nbsp;<strong>Colaboradores en esta página:</strong> 
+        <a href="/es/profiles/cizquierdof">cizquierdof</a>
+    
+                    </div>
+                  
+
+                  
+                    <div class="contributors-sub">
+                      <i aria-hidden="true" class="icon-clock-o icon-fw"></i>&nbsp;<strong>Última actualización por:</strong>
+                      <a href="/es/profiles/cizquierdof">cizquierdof</a>,
+                      <time datetime="2015-04-27T03:12:43-07:00">27 abr. 2015 3:12:43</time>
+                    </div>
+                  
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div> <!-- ends "main-content" -->
+
+  <menu type="context" id="edit-history-menu">
+    <menuitem data-action="/es/docs/Web/Guide/HTML/Forms/Styling_HTML_forms$edit" label="Editar página"></menuitem>
+    <menuitem data-action="/es/docs/Web/Guide/HTML/Forms/Styling_HTML_forms$history" label="Ver historial de la página"></menuitem>
+  </menu>
+
+  </div></main>
+
+  <!-- Footer -->
+  <footer><div class="center">
+    <div class="column-container">
+      <div class="column-main">
+        
+        <div class="contentinfo">
+          <p>&copy; Mozilla Developer Network y colaboradores individuales de 2005-2016 .</p> <p>El contenido está disponible bajo <a href="/en-US/docs/MDN/About#Copyrights_and_licenses">estas licencias</a>.</p>
+          <ul>
+            <li><a href="/docs/MDN/About">Acerca de MDN</a></li>
+            <li><a href="//www.mozilla.org/about/legal/terms/mozilla">Condiciones</a></li>
+            <li><a href="//www.mozilla.org/privacy/websites/">Privacidad</a></li>
+            <li><a href="//www.mozilla.org/privacy/websites/#cookies">Cookies</a></li>
+            <li><a href="//github.com/mozilla/kuma">Contribuir en el código</a></li>
+          </ul>
+        </p>
+        
+        </div>
+      </div>
+      <div class="column-strip">
+        
+          
+  
+    <form class="languages go" method="get" action="/es/docs/Web">
+      <label for="language">Otros idiomas:</label>
+      <select id="language" class="wiki-l10n" name="next" dir="ltr">
+        <option value="/es/docs/Web/Guide/HTML/Forms/Styling_HTML_forms" selected>
+          Español
+        </option>
+        
+          <option value="/en-US/docs/Web/Guide/HTML/Forms/Styling_HTML_forms">
+            English (US)
+          </option>
+          <option value="/ja/docs/Web/Guide/HTML/Forms/Styling_HTML_forms">
+            日本語
+          </option>
+          <option value="/fr/docs/Web/Guide/HTML/Formulaires/Apparence_des_formulaires_HTML">
+            Français
+          </option>
+      </select>
+      <noscript><button type="submit">Ir</button></noscript>
+    </form>
+  
+
+        
+      </div>
+    </div>
+  </div></footer>
+
+  <!-- site js -->
+  
+    
+    <!--[if lte IE 8]><script type="text/javascript" src="https://developer.cdn.mozilla.net/static/build/js/selectivizr.091e18cf669b.js" charset="utf-8"></script><![endif]-->
+
+    <form id="_persona_login" method="post" action="/users/persona/signin" data-csrf-token-url="/users/persona/csrf" data-request='{"siteName": "Mozilla Developer Network", "siteLogo": "/static/img/opengraph-logo.png"}' data-persona-script="https://login.persona.org/include.js">
+  <input type="hidden" name="csrfmiddlewaretoken" value="" id="_persona_csrf_token" />
+  <input type="hidden" name="next" value="" id="_persona_next_url"/>
+  <input type="hidden" name="process" value="" id="_persona_process"/>
+  <input type="hidden" name="assertion" id="_persona_assertion"/>
+</form>
+
+
+    <script type="text/javascript" src="https://developer.cdn.mozilla.net/static/build/js/main.a52455fd6782.js" charset="utf-8"></script>
+
+      <script>
+        if(window.mdn && mdn.analytics) mdn.analytics.trackOutboundLinks();
+      </script>
+
+    
+    <script type="text/javascript" src="https://developer.cdn.mozilla.net/static/jsi18n/es/javascript.05529743783f.js"></script>
+  
+    <script async type="text/javascript" src="https://developer.cdn.mozilla.net/static/build/js/wiki.f5cb67f3a10c.js" charset="utf-8"></script>
+
+
+  
+
+  
+
+
+</body>
+</html>

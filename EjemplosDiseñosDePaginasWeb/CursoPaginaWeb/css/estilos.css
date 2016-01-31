@@ -1,0 +1,257 @@
+@import url('reset.css');
+@import url('fuentes.css');
+
+
+/*--- Estilos Generales ---*/
+body {
+	background: #2d2d2d;
+	font-family: Arial, Helvetica, Sans-serif;
+}
+
+a {text-decoration: none;color: #fff;}
+a:hover {text-decoration: underline;}
+
+#wrap{
+	width: 960px;
+	margin: auto;
+	clear: both;	
+}
+
+/*--- Header ---*/
+
+header {
+	width: 100%;
+	float:left;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f5f9f0+0,f5f9f0+0,f9fcf7+1 */
+background: #f5f9f0; /* Old browsers */
+background: -moz-linear-gradient(top,  #f5f9f0 0%, #f5f9f0 0%, #f9fcf7 1%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #f5f9f0 0%,#f5f9f0 0%,#f9fcf7 1%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #f5f9f0 0%,#f5f9f0 0%,#f9fcf7 1%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f9f0', endColorstr='#f9fcf7',GradientType=0 ); /* IE6-9 */
+box-shadow: 0px 3px 5px #000;
+	-moz-box-shadow: 0px 3px 5px #000;
+	-webkit-box-shadow: 0px 3px 5px #000;
+
+}
+
+#subheader {
+	width: 960px;
+	margin: auto;
+}
+
+#logotipo {
+	float:left;
+	width:500px;
+	padding: 10px 0px;
+}
+
+#logotipo a {
+	font-family: sourcesans-light;
+	font-size: 50px;
+	color: #000
+}
+
+#logotipo a:hover {text-decoration: none;}
+
+/* --- Menu ---*/
+header #subheader nav {
+	float:left;
+	width: 460px;
+	padding: 30px 0px;
+	text-align: right;
+}
+header #subheader nav ul li {
+	display: inline;
+	font-family: sourcesans;
+}
+
+header #subheader nav ul li a {
+	color: #000;
+    font-size: 18px;
+	padding: 10px;
+	  border-radius: 2px;
+	  -moz-border-radius: 2px;
+	  -webkit-border-radius: 2px;
+}
+
+header #subheader nav ul li a:hover {
+	color: #fff;
+	background: #1798af;
+	text-decoration: none;
+}
+
+/* -- Main --*/
+
+#main{
+	width: 100%;
+	margin: 20px 0px 0px 0px;
+	float: left;
+}
+
+/* Slideshow */
+#slideshow {
+	width: 920px;
+	height: 260px;
+	float: left;
+	background: #000;
+	border: solid 20px #fff;
+	margin-bottom: 10px;
+}
+
+/* --- Bienvenidos ---*/
+#bienvenidos {
+	width: 920px;
+	float:left;
+	background: green;
+	padding: 20px;
+	margin: 20px 0px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	box-shadow: 0px 2px 2px #000;
+    -moz-box-shadow: 0px 2px 2px #000;
+	-webkit-box-shadow: 0px 2px 2px #000;
+}
+#bienvenidos article h2{
+	font-family: sourcesans-light;
+	color: #fff;
+	font-size: 40px;
+	margin-bottom: 10px;
+}
+
+#bienvenidos article{
+	color: #fff;
+	line-height: 27px;
+}
+
+/*-- Contenido --*/
+
+#contenido {
+	width:  700px;
+	float: left;
+}
+
+#contenido article{
+	float: left;
+	margin-bottom: 20px;
+}
+
+#contenido article .titulo{
+	font-size: 22px;
+	font-family: sourcesans;
+    color:#fff;
+}
+
+#contenido article .fecha {
+	font-size: 14px;
+	color: #1798af;
+	margin-bottom: 5px;
+}
+
+#contenido article .web{
+	width: 220px;
+	height: 150px;
+	float: left;
+	margin: 0px 10px 10px 0px;
+}
+
+#contenido article > p{
+	color: #8c8c8c;
+	font-size:14px;
+	text-align: justify;
+}
+
+/* -- Sidebar -- */
+aside {
+	width: 220px;
+	float: left;
+	margin-left: 20px;
+	background:#4d78b3;
+	padding: 10px 10px 10px 10px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+    box-shadow:  0px 2px 2px 5px #000;
+}
+
+aside .widget {
+	margin-bottom: 10px;
+	float: left;
+}
+
+aside .widget >h3 {
+	background: #fff;
+	color:#4d78b3;
+	width: 220px;
+	padding: 10px 0px;
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+aside .widget a { color: #fff;}
+aside .widget ul li{ margin-bottom:  5px}
+aside .widget img {width: 200px; height: 150px}
+
+/* --Footer-- */
+
+footer {
+	width: 100%;
+	float: left;
+	clear: both;
+	box-shadow: 0px 2px 2px #000;
+	-moz-box-shadow: 0px 2px 2px #000;
+	-webkit-box-shadow: 0px 2px 2px #000;
+    border-radius: 5px;
+}
+
+footer section {
+	width: 440px;
+	float: left;
+	padding: 20px;
+}
+
+footer #acerca-de{
+	font-family: Arial, Helvetica, Sans-serif;
+    font-size: 12px;
+	color: black;
+	text-align: justify;
+	line-height: 20px;
+}
+
+footer #acerca-de h3 {
+	font-family: sourcesans-light;
+	font-size: 20px;
+	color: #fff;
+	margin-bottom: 5px;
+}
+
+footer #redes-sociales >div{
+	width: 220px;
+	height: 60px;
+	float: left;
+	background: #ff8000;
+	margin-right: 1px;
+	margin-bottom: 1px;
+	opacity:0.7;
+}
+
+footer #redes-sociales > div a{
+	width: 220px;
+	height: 60px;
+	display: inline-block;
+}
+
+footer #redes-sociales .email {
+	background: url(imagenes/email.png);
+}
+
+footer #redes-sociales .facebook {
+	background: url(imagenes/tumblr.png);
+}
+footer #redes-sociales .twitter {
+	background: url(imagenes/github.png);
+}
+footer #redes-sociales .youtube {
+	background: url(imagenes/spotify.png);
+}

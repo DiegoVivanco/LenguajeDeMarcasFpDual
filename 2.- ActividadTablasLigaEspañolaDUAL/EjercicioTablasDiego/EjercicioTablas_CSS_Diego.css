@@ -1,0 +1,50 @@
+table{
+    margin:45px;
+    width: 490px;
+    border-collapse: separate;
+    border-spacing: 0px;
+    border-bottom: 10px black solid;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size:12px;
+    text-align: left;
+}
+
+th{
+    padding: 8px;
+    background-color: black;
+    color:white;
+    font-size:13px;
+    font-weight: normal;
+    border-bottom: 1px solid #fff;
+}
+
+td{
+    padding: 8px;
+    border-top 1px solid transparent;
+    border-bottom: 1px solid #fff;
+	background: #e8edff;
+	color: #669;
+}
+
+thead > tr:nth-child(even) th { /* even --> pilla los pares. Inconveniente si añadimos otra fila de títulos*/
+	background-color: teal;
+	text-align: center;
+}
+
+thead tr:first-child th:first-child {
+	border-top-left-radius: 15px;
+}
+
+thead > tr:first-child th:nth-child(2){
+	border-top-right-radius: 15px;
+}
+tr:hover td	{
+	background: palegreen;
+	color: #339;
+}
+tr:hover td:last-child { /* última columna permanece azul */
+	background: #00F;
+	color: #339;
+}

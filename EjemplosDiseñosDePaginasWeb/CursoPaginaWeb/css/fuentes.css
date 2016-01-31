@@ -1,0 +1,9 @@
+@font-face {
+	font-family: sourcesans;
+	src:url(.../fuentes/SourceSans/SourceSansPro-regular.ttf);
+}
+
+@font-face {
+	font-family: sourcesans-light;
+	src:url(.../fuentes/SourceSans/SourceSansPro-Light.ttf);
+}
